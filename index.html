@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Desafios</h1>
+        <p id="instrucao">Complete os desafios para descobrir quem mandou o presente!</p>
+        <div id="desafios">
+            <div class="desafio" id="desafio1">
+                <p>Desafio 1: Clique no botão 3 vezes.</p>
+                <button id="botao1">Clique aqui!</button>
+                <p id="contador1">Cliques: 0/3</p>
+            </div>
+            <div class="desafio escondido" id="desafio2">
+                <p>Desafio 2: Acerte o botão que foge.</p>
+                <button id="botao2">👀</button>
+            </div>
+            <div class="desafio escondido" id="desafio3">
+                <p>Desafio 3: Clique no botão que pisca.</p>
+                <button id="botao3">🎯</button>
+            </div>
+            <div class="desafio escondido" id="desafio4">
+                <p>Desafio 4: Encontre o botão invisível.</p>
+                <div id="areaBusca">
+                    <button id="botao4" class="invisivel">👻</button>
+                </div>
+            </div>
+            <div class="desafio escondido" id="desafio5">
+                <p>Desafio 5: Clique no botão que muda de cor.</p>
+                <button id="botao5">🌈</button>
+            </div>
+        </div>
+        <p id="mensagem" class="escondido">Parabéns! Você completou todos os desafios!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
