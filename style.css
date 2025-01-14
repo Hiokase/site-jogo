@@ -1,16 +1,12 @@
-/* Estilos gerais */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1e1e2f;
     color: #fff;
     text-align: center;
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .container {
@@ -20,6 +16,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     max-width: 90%;
     width: 100%;
+    margin: 0 auto;
 }
 
 h1 {
@@ -67,10 +64,39 @@ button:hover {
     margin-bottom: 20px;
 }
 
-/* Cards */
+#arrastarContainer {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #ff6f61;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#arrastavel {
+    width: 50px;
+    height: 50px;
+    background-color: #ff6f61;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: grab;
+}
+
+#alvo {
+    width: 100px;
+    height: 100px;
+    background-color: #4caf50;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     margin-bottom: 20px;
 }
@@ -80,7 +106,6 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +134,32 @@ button:hover {
     transform: scale(1);
 }
 
-/* Responsividade */
+#final {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#final h2 {
+    color: #ff6f61;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#final button {
+    background-color: #25d366;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#final button:hover {
+    background-color: #128c7e;
+}
+
 @media (max-width: 600px) {
     h1 {
         font-size: 2em;
@@ -119,24 +169,7 @@ button:hover {
         font-size: 1em;
     }
 
-    .cards {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 10px;
-    }
-
-    .card {
-        padding: 15px;
-    }
-
-    .card h2 {
-        font-size: 1.3em;
-    }
-
-    .card p {
-        font-size: 0.9em;
-    }
-
-    #prosseguir {
+    button {
         padding: 8px 16px;
         font-size: 0.9em;
     }
