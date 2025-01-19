@@ -1,6 +1,6 @@
 # Desafio do Presente 🎁
 
-Este projeto foi criado como uma brincadeira interativa para uma pessoa especial descobrir quem enviou um presente. O site consiste em uma série de desafios que o usuário deve completar para revelar a mensagem final.
+Este projeto foi criado como uma brincadeira interativa para alguem descobrir quem enviou um presente. O site consiste em uma série de desafios que o usuário deve completar para revelar a mensagem final.
 
 ---
 
@@ -39,7 +39,7 @@ Após completar todos os desafios, o usuário é redirecionado para a página `c
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seu-usuario/desafio-do-presente.git
+   git clone https://github.com/Hiokase/site-jogo.git
 Navegue até o diretório do projeto:
 
 bash
@@ -65,30 +65,29 @@ Configure o Número do WhatsApp:
 
 No arquivo script.js, procure a seguinte linha:
 
-javascript
-Copy
+```js
 const phoneNumber = ''; // Numero do seu wtt que vai ser levado!
+```
 Substitua o valor vazio '' pelo número de telefone no formato internacional. Por exemplo, para o Brasil, o número deve estar no formato +5511999999999 (código do país + DDD + número).
 
 Exemplo:
 
-javascript
-Copy
+```js
 const phoneNumber = '+5511999999999'; // Número do WhatsApp
+```
 Configure a Mensagem Pré-definida:
 
 Ainda no arquivo script.js, procure a linha:
 
-javascript
-Copy
+```js
 const message = encodeURIComponent('Desenvolvido por hokase');
+```
 Substitua o texto 'Desenvolvido por hokase' pela mensagem que você deseja que seja enviada automaticamente. A função encodeURIComponent garante que a mensagem seja formatada corretamente para URLs.
 
 Exemplo:
-
-javascript
-Copy
+```js
 const message = encodeURIComponent('Olá! Adorei o presente e completei todos os desafios! 🎉');
+```
 Teste o Botão:
 
 Após configurar o número e a mensagem, salve o arquivo e abra a página finish.html no navegador.
@@ -97,9 +96,7 @@ Clique no botão "Descobrir quem foi" para garantir que ele redireciona corretam
 
 Exemplo Completo no Código
 Aqui está como o código final deve ficar no arquivo script.js:
-
-javascript
-Copy
+```js
 const whatsappButton = document.getElementById('whatsappButton');
 whatsappButton.addEventListener('click', () => {
     const phoneNumber = '+5511999999999'; // Número do WhatsApp (formato internacional)
@@ -107,5 +104,9 @@ whatsappButton.addEventListener('click', () => {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
 });
-Contribuição 🤝
+```
+## LINK TESTE
+https://site-jogo2025.vercel.app
+
+### Contribuição 🤝
 Se você quiser contribuir para este projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request. Todas as contribuições são bem-vindas!
