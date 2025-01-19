@@ -101,7 +101,7 @@ if (window.location.pathname.includes('index.html') || window.location.pathname 
         mostrarProximoDesafio('desafio8');
     });
 
-    setInterval(moverBotao7, 500);
+    setInterval(moverBotao7, 1500);
 
     const botao8 = document.getElementById('botao8');
     let opacidade = 1;
