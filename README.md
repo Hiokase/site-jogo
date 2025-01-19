@@ -109,8 +109,3 @@ whatsappButton.addEventListener('click', () => {
 });
 Contribuição 🤝
 Se você quiser contribuir para este projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request. Todas as contribuições são bem-vindas!
-
-Licença 📄
-Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
-Feito com ❤️ por Seu Nome
