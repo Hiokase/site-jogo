@@ -143,7 +143,6 @@ if (window.location.pathname.includes('cards.html')) {
         { titulo: "CARD TESTE", texto: "TESTE" },
         { titulo: "CARD TESTE", texto: "TESTE" },
         { titulo: "CARD TESTE", texto: "TESTE" }
-
     ];
 
     const cardsContainer = document.getElementById('cards-container');
@@ -191,11 +190,16 @@ if (window.location.pathname.includes('finish.html')) {
     const alvo = document.getElementById('alvo');
     const final = document.getElementById('final');
 
+    function moverElemento(clientX, clientY) {
+        arrastavel.style.left = `${clientX - arrastavel.offsetWidth / 2}px`;
+        arrastavel.style.top = `${clientY - arrastavel.offsetHeight / 2}px`;
+    }
+
+    // Eventos para touch (celular)
     arrastavel.addEventListener('touchmove', (e) => {
         e.preventDefault();
         const touch = e.touches[0];
-        arrastavel.style.left = `${touch.clientX - arrastavel.offsetWidth / 2}px`;
-        arrastavel.style.top = `${touch.clientY - arrastavel.offsetHeight / 2}px`;
+        moverElemento(touch.clientX, touch.clientY);
     });
 
     arrastavel.addEventListener('touchend', () => {
@@ -213,9 +217,40 @@ if (window.location.pathname.includes('finish.html')) {
         }
     });
 
+    // Eventos para mouse (computador)
+    let arrastando = false;
+
+    arrastavel.addEventListener('mousedown', () => {
+        arrastando = true;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (arrastando) {
+            moverElemento(e.clientX, e.clientY);
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (arrastando) {
+            arrastando = false;
+            const arrastavelRect = arrastavel.getBoundingClientRect();
+            const alvoRect = alvo.getBoundingClientRect();
+
+            if (
+                arrastavelRect.left > alvoRect.left &&
+                arrastavelRect.right < alvoRect.right &&
+                arrastavelRect.top > alvoRect.top &&
+                arrastavelRect.bottom < alvoRect.bottom
+            ) {
+                final.classList.remove('escondido');
+                arrastavel.classList.add('escondido');
+            }
+        }
+    });
+
     const whatsappButton = document.getElementById('whatsappButton');
     whatsappButton.addEventListener('click', () => {
-        const phoneNumber = ''; // Numero do seu wtt que vai ser levado!
+        const phoneNumber = ''; // Número do seu WhatsApp que vai ser levado!
         const message = encodeURIComponent('Desenvolvido por hokase');
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
         window.open(whatsappUrl, '_blank');
